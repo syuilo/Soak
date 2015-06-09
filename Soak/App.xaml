@@ -1,0 +1,16 @@
+﻿<Application x:Class="Soak.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             Startup="Application_Startup">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Akari;component/ResourceDictionarys/Convs.xaml" />
+                <ResourceDictionary Source="/Akari;component/ResourceDictionarys/FlatListViewStyle.xaml" />
+                <ResourceDictionary Source="/Akari;component/ResourceDictionarys/FlatButtonStyle.xaml" />
+                <ResourceDictionary Source="/Akari;component/ResourceDictionarys/FlatProgressBarStyle.xaml" />
+                <ResourceDictionary Source="/Akari;component/ResourceDictionarys/FlatCheckBoxStyle.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

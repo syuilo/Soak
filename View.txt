@@ -1,0 +1,7 @@
+View
+
+XAMLで記述され、UIの外観と構造を定義します。
+基本UIのコードビハインドには、初期のInitializeComponentメソッド以外何も記述されているべきではありません。
+
+MVVMパターンの常識 ― 「M」「V」「VM」の役割とは？ (著: 尾上 雅則氏)
+http://www.atmarkit.co.jp/fdotnet/chushin/greatblogentry_02/greatblogentry_02_02.html より引用

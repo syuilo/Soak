@@ -1,0 +1,6 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:conv="clr-namespace:Akari.Converters"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <conv:BoolToVisConverter x:Key="BoolToVisConverter" />
+    <conv:EmptyStringToBoolConverter x:Key="EmptyStringToBoolConverter" />
+</ResourceDictionary>

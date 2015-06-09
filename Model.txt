@@ -1,0 +1,7 @@
+Model
+
+Modelは、C#などの汎用プログラミング言語で記述され、ドメイン・ロジックとデータ、
+つまりはビジネス・ロジックとビジネス・ドメインのステートを持ちます。
+
+MVVMパターンの常識 ― 「M」「V」「VM」の役割とは？ (著: 尾上 雅則氏)
+http://www.atmarkit.co.jp/fdotnet/chushin/greatblogentry_02/greatblogentry_02_04.html より引用

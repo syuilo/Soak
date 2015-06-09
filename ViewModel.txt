@@ -1,0 +1,40 @@
+ViewModel
+
+一般的にViewModelは、C#などの汎用プログラミング言語で記述され、プレゼンテーション・ロジックとステート（＝状態）を持ちます。
+ドメイン・エンティティをViewに表示できるように整形したり、ドメイン・ロジックが公開するメソッドを操作として公開したりする責務を持ちます。
+
+Modelの公開するステートをいちいちラップしてViewに公開するのもViewModelの役目です。
+
+また、Viewへアクションの指示を行うためのメッセージ・イベントを発行します。
+
+ViewModelは、Viewへの参照を持ったり、Viewの特定の実装を意識したりしません。
+しかしViewModelはまったくViewを意識しないというわけでもないので注意が必要です。
+「ViewModelはViewを意識しますが、その実装について何も知らなくてもよいし、知るべきではない」という認識が妥当です。
+ViewModelのプロパティは、特定のコントロールにさえ結合しなければ表示専用のものであってよいのです。それを忘れないでください。
+
+ViewとViewModelでプレゼンテーション・ロジックを分担します。
+ViewModelはUI要素と結合しないプレゼンテーション・ロジックを担当し、ViewはUI要素に結合したプレゼンテーション・ロジックを担当します
+（具体的にはSystem.Windows名前空間ではじまる列挙体・構造体以外の型のプロパティはViewModelでは所持しないなどの切り分けが可能です）。
+
+後述するModelにビジネス・レベルの入力値検証は含まれますが、それとは別にViewModelは当然、入力値検証機能を持ちます。
+ViewModelはModelの入力値検証結果をラップすることで、Viewに入力値検証の結果を公開したり、
+ViewModelで新たに定義した表示専用／入力専用のプロパティの検証結果を公開したりします。
+入力値検証機能はDataAnnotations（＝System.ComponentModel.DataAnnotations名前空間）やIDataErrorInfoインターフェイス（System.ComponentModel名前空間）、
+あるいはINotifyDataErrorInfoインターフェイス（＝INotifyDataErrorInfoインターフェイスはWPF 4にはないのでSilverlight専用）の実装として行います。
+
+ViewModelはViewにバインドされ、そのプロパティをViewに公開しています。
+ViewModelで、プロパティ値の変更があった場合、INotifyPropertyChangedインターフェイスの実装を通じて、Viewに値の変更を通知してやる必要があります。
+
+コレクションのバインドは、コレクション・コントロールのItemsSourceプロパティに、
+INotifyCollectionChangedインターフェイスの実装であるコレクションを設定することで行います。
+通常、ObservableCollection<T>オブジェクトを使用します。
+
+ビジネス・ドメインに属するステートをViewModelに置くのはやめましょう。それはModelの責務です。
+Webシステムにおける3層構造に慣れた方にありがちなことですが、ViewModelにビジネス・ドメインに属するステートを置くことは、MVVMパターンの本来の目的である、「ドメイン・ロジックとプレゼンテーション・ロジックの分離」という考え方に反します。
+
+通常、最低1つの画面に1つのViewModelが必要で、コレクション・ビュー（＝ListBoxやTreeViewなど）の項目ごとに操作があるなら、
+それの1項目ごと用のViewModelも必要です（操作がなくても普通は作ります）。
+大抵、コレクション・ビューの各項目は操作を持つし、表示方式をModelのものから変えて表示したい場合が多いからです。
+
+MVVMパターンの常識 ― 「M」「V」「VM」の役割とは？ (著: 尾上 雅則氏)
+http://www.atmarkit.co.jp/fdotnet/chushin/greatblogentry_02/greatblogentry_02_03.html より引用

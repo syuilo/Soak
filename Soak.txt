@@ -1,0 +1,8 @@
+Himawari
+	Modelです。
+
+Akari
+	Viewです。SoakのUI部分を司ります。
+
+Sakurako
+	ViewModelです。
